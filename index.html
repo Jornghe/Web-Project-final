@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tech Hub | Premium Computer Accessories</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+</head>
+<body>
+    <!-- Header with Categories dropdown -->
+    <header>
+        <div class="container header-container">
+            <div class="logo" id="homeLink">
+                <i class="fas fa-laptop-code"></i>
+                <span>Tech Hub</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+            <nav id="mainNav" >
+                <ul>
+                    <li><a href="#" class="active" id="homeNavLink">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="categoriesLink">Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#" data-category="mice"><i class="fas fa-mouse"></i> Mouse</a>
+                            <a href="#" data-category="keyboards"><i class="fas fa-keyboard"></i> Keyboards</a>
+                            <a href="#" data-category="headsets"><i class="fas fa-headphones"></i> Headsets</a>
+                            <a href="#" data-category="monitors"><i class="fas fa-desktop"></i> Monitors</a>
+                            <a href="#" data-category="speakers"><i class="fas fa-volume-up"></i> Speakers</a>
+                            <a href="#" data-category="mousepads"><i class="fas fa-border-style"></i> Mouse Pads</a>
+                            <a href="#" data-category="controllers"><i class="fas fa-gamepad"></i> Controller</a>
+                            
+                        </div>
+                    </li>
+                    <li><a href="#" id="brandsLink">Brands</a></li>
+                    <div class="nav-icons">
+                          <a href="#" id="loginLink">Login & </a>
+                          <a href="#" id="signupLink"> Sign Up</a>
+                          <a href="#" id="logoutLink" style="display: none;">Logout</a>
+</div>
+
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <a href="#" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div id="loginModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button id="submitLogin">Login</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+<div id="signupModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Sign Up</h2>
+        <input type="text" id="signupUsername" placeholder="Username">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <button id="submitSignup">Sign Up</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+
+    <!-- Home Screen -->
+    <section id="homeScreen" class="screen active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Upgrade Your Tech Experience</h1>
+                    <p>Discover premium computer accessories for gamers, professionals, and tech enthusiasts. Free shipping on orders over $50.</p>
+                    <button class="btn" id="shopNowBtn">Shop Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Products</h2>
+                    <p>Top-rated accessories chosen by our community</p>
+                </div>
+                <div class="products-grid" id="featuredProducts">
+                    <!-- Products will be dynamically loaded -->
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Mice Category Screen -->
+   
+    <section id="miceScreen" class="screen">
+        <div class="category-header">
+           
+            <div class="container">
+                
+                <h1>Gaming & Productivity Mice</h1>
+                <p>Find the perfect mouse for your setup with precision sensors and ergonomic designs</p>
+            </div>
+           
+        </div>
+        
+        <div class="container">
+            <div class="products-grid" id="miceProducts">
+                <!-- Mice products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+   
+    
+
+    <!-- Keyboards Category Screen -->
+    <section id="keyboardsScreen" class="screen">
+        <div class="category-header">
+            <div class="container">
+                <h1>Mechanical & Membrane Keyboards</h1>
+                <p>Enhance your typing and gaming experience with premium keyboards</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="products-grid" id="keyboardsProducts">
+                <!-- Keyboards products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Headsets Category Screen -->
+    <section id="headsetsScreen" class="screen">
+        <div class="category-header">
+            <div class="container">
+                <h1>Premium Gaming Headsets</h1>
+                <p>Immersive audio experience for gaming and entertainment</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="products-grid" id="headsetsProducts">
+                <!-- Headsets products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitors Category Screen -->
+    <section id="monitorsScreen" class="screen">
+        <div class="category-header">
+            <div class="container">
+                <h1>High-Performance Monitors</h1>
+                <p>Crisp visuals and smooth gameplay for the ultimate experience</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="products-grid" id="monitorsProducts">
+                <!-- Monitors products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Category Screen -->
+    <section id="speakersScreen" class="screen">
+        <div class="category-header">
+            <div class="container">
+                <h1>Premium Audio Speakers</h1>
+                <p>Rich, immersive sound for your gaming and entertainment setup</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="products-grid" id="speakersProducts">
+                <!-- Speakers products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mouse Pads Category Screen -->
+    <section id="mousepadsScreen" class="screen">
+        <div class="category-header">
+            <div class="container">
+                <h1>Gaming Mouse Pads</h1>
+                <p>Precision surfaces for smooth mouse tracking and control</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="products-grid" id="mousepadsProducts">
+                <!-- Mouse pads products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DELETE this entire section -->
+<section id="controllersScreen" class="screen">
+    <div class="category-header">
+        <div class="container">
+            <h1>Game Controllers</h1>
+            <p>Precision and performance in your hands</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="products-grid" id="controllersProducts"></div>
+    </div>
+</section>
+
+    
+
+   
+
+    <!-- Brands Screen -->
+<section id="brandsScreen" class="screen">
+    <div class="category-header">
+        <div class="container">
+            <h1>Our Trusted Brands</h1>
+            <p>Explore products by top-tier brands in the tech industry</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="brand-grid">
+    <div class="brand-card" data-brand ="Logitech">
+         <picture>
+        <source srcset="img/Logitech.webp" type="image/webp">
+        <source srcset="img/Logitech.avif" type="image/avif"> 
+        <img src="img/Logitech.png" alt="Logitech" loading="eager" width="200" height="200" >
+          </picture>
+    </div>
+    <div class="brand-card" data-brand ="Razer">
+        <picture>
+        <source srcset="img/razer.webp" type="image/webp">
+        <source srcset="img/razer.avif" type="image/avif">
+        <img src="img/razer.png" alt="Razer"  width="200" height="200" loading="lazy">
+        </picture>
+    </div>
+    <div class="brand-card" data-brand ="SteelSeries">
+        <picture>
+        <source srcset="img/steelseries.webp" type="image/webp">
+        <source srcset="img/steelseries.avif" type="image/avif">        
+        <img src="img/steelseries.png" alt="SteelSeries" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+    <div class="brand-card" data-brand ="Asus">
+        <picture>
+        <source srcset="img/asus.webp" type="image/webp">
+        <source srcset="img/asus.avif" type="image/avif">
+        <img src="img/asus.png" alt="Asus" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+      <div class="brand-card" data-brand ="MSI">
+        <picture>
+        <source srcset="img/msi.webp" type="image/webp">
+        <source srcset="img/msi.avif" type="image/avif">
+        <img src="img/msi.png" alt="MSI" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+    <div class="brand-card" data-brand ="Gigabyte">
+        <picture>
+        <source srcset="img/gigabyte.webp" type="image/webp">
+        <source srcset="img/gigabyte.avif" type="image/avif">
+        <img src="img/gigabyte.png" alt="Gigabyte" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+    <div class="brand-card" data-brand ="Samsung">
+        <picture>
+        <source srcset="img/samsung.webp" type="image/webp">
+        <source srcset="img/samsung.avif" type="image/avif">
+        <img src="img/samsung.png" alt="Samsung" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+    <div class="brand-card" data-brand="PlayStation">
+        <picture>
+        <source srcset="img/playstation.webp" type="image/webp">
+        <source srcset="img/playstation.avif" type="image/avif">
+        <img src="img/playstation.png" alt="PlayStation" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+    <div class="brand-card" data-brand="Xbox">
+        <picture>
+        <source srcset="img/xbox.webp" type="image/webp">
+        <source srcset="img/xbox.avif" type="image/avif">
+        <img src="img/xbox.png" alt="Xbox" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+      <div class="brand-card" data-brand="HyperX">
+        <picture>
+        <source srcset="img/hyperx.webp" type="image/webp">
+        <source srcset="img/hyperx.avif" type="image/avif">
+        <img src="img/hyperx.png" alt="HyperX" loading="lazy" width="200" height="200">
+        </picture>
+    </div>
+
+        </div>
+    </div>
+</section>
+      <!-- Brands  Product Screen -->
+       <section id="brandProductsScreen" class="screen">
+         <div class="category-hero">
+        <div class="container">
+            <div class="brand-header">
+                <div class = "brand-logo-container">
+                <img id="brandLogo" src="" alt="Brand Logo" class="brand-logo"
+                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.display='none'">>
+                </div>
+                  <div class = "brand-title-container">  
+                    <h1 id="brandTitle">Brand Products</h1>
+                    <p>Top picks from your favorite brand</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container">
+        <div class="products-grid" id="brandProductsGrid"></div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- Product Detail Screen -->
+    <section id="productDetailScreen" class="screen">
+        <div class="product-detail-container">
+            <div class="back-btn" id="backBtn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Products</span>
+            </div>
+            
+            <div class="product-detail">
+                <div class="product-detail-images">
+                    <div class="main-image">
+                        <img id="detailMainImage" src="" alt="Product Image">
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active">
+                            <img id="thumb1" src="" alt="Thumbnail 1">
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="product-detail-info">
+                    <span class="detail-badge" id="detailBadge">New</span>
+                    <h1 id="detailTitle">Product Title</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count">(124 reviews)</span>
+                    </div>
+                    
+                    <div class="product-price" id="detailPrice">$0.00</div>
+                    
+                    <p class="product-description" id="detailDescription">
+                        Product description goes here. This is a detailed description of the product features and benefits.
+                    </p>
+                    
+                    <div class="product-features">
+                        <h3>Key Features</h3>
+                        <ul class="features-list" id="featuresList">
+                            <li><i class="fas fa-check-circle"></i> Feature one description</li>
+                            <li><i class="fas fa-check-circle"></i> Feature two description</li>
+                            <li><i class="fas fa-check-circle"></i> Feature three description</li>
+                            <li><i class="fas fa-check-circle"></i> Feature four description</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn" id="detailAddToCart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h3>Specifications</h3>
+                        <table class="specs-table" id="specsTable">
+                            <tr>
+                                <td>Brand</td>
+                                <td id="specBrand">Brand Name</td>
+                            </tr>
+                            <tr>
+                                <td>Model</td>
+                                <td id="specModel">Model Number</td>
+                            </tr>
+                            <tr>
+                                <td>Connectivity</td>
+                                <td id="specConnectivity">Wireless</td>
+                            </tr>
+                            <tr>
+                                <td>Dimensions</td>
+                                <td id="specDimensions">120 x 65 x 40 mm</td>
+                            </tr>
+                            <tr>
+                                <td>Weight</td>
+                                <td id="specWeight">95g</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Screen -->
+    <section id="cartScreen" class="screen">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h1 class="cart-title">Your Shopping Cart</h1>
+                <div class="back-btn" id="backToProducts">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Continue Shopping</span>
+                </div>
+            </div>
+            
+            <div class="cart-content">
+                <div class="cart-items" id="cartItemsList">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+                
+                <div class="cart-summary">
+                    <h2 class="summary-title">Order Summary</h2>
+                    <div class="summary-row">
+                        <span class="summary-label">Subtotal</span>
+                        <span class="summary-value" id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Shipping</span>
+                        <span class="summary-value" id="cartShipping">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Tax</span>
+                        <span class="summary-value" id="cartTax">$0.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn">
+                        <i class="fas fa-lock"></i>
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Screen -->
+    <section id="checkoutScreen" class="screen">
+        <div class="checkout-container">
+            <div class="cart-header">
+                <h1 class="cart-title">Checkout</h1>
+                <div class="back-btn" id="backToCart">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Cart</span>
+                </div>
+            </div>
+            
+            <div class="checkout-grid">
+                <div class="checkout-form">
+                    <div class="form-section">
+                        <h2 class="form-title">Shipping Information</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name</label>
+                                <input type="text" class="form-input" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name</label>
+                                <input type="text" class="form-input" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" class="form-input" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="address">Street Address</label>
+                            <input type="text" class="form-input" id="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="city">City</label>
+                                <input type="text" class="form-input" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="zip">Zip Code</label>
+                                <input type="text" class="form-input" id="zip" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="country">Country</label>
+                            <select class="form-input" id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="AU">Australia</option>
+                                <option value="DE">Germany</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2 class="form-title">Payment Method</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method active" data-method="credit">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit Card</span>
+                            </div>
+                            <div class="payment-method" data-method="paypal">
+                                <i class="fab fa-paypal"></i>
+                                <span>PayPal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details" id="creditCardDetails">
+                            <div class="form-group">
+                                <label class="form-label" for="cardNumber">Card Number</label>
+                                <input type="text" class="form-input" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="expDate">Expiration Date</label>
+                                    <input type="text" class="form-input" id="expDate" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="cvv">CVV</label>
+                                    <input type="text" class="form-input" id="cvv" placeholder="123" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cardName">Name on Card</label>
+                                <input type="text" class="form-input" id="cardName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details" id="paypalDetails" style="display: none;">
+                            <div class="form-group">
+                                <p>You will be redirected to PayPal to complete your payment after placing the order.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checkout-summary">
+                    <h2 class="summary-title">Order Summary</h2>
+                    <div id="checkoutItems">
+                        <!-- Checkout items will be inserted here -->
+                    </div>
+                    <div class="order-total">
+                        <span>Total</span>
+                        <span id="checkoutTotal">$0.00</span>
+                    </div>
+                    <button class="place-order-btn" id="placeOrderBtn">
+                        <i class="fas fa-lock"></i>
+                        Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Confirmation Screen -->
+    <section id="confirmationScreen" class="screen">
+        <div class="confirmation-container">
+            <div class="confirmation-card">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="confirmation-title">Order Confirmed!</h2>
+                <p class="confirmation-text">
+                    Thank you for your purchase. Your order has been placed successfully and will be processed shortly.
+                    A confirmation email has been sent to your email address.
+                </p>
+                
+                <div class="order-details">
+                    <div class="order-row">
+                        <span class="order-label">Order Number:</span>
+                        <span id="orderNumber">#TGP-2023-00125</span>
+                    </div>
+                    <div class="order-row">
+                        <span class="order-label">Date:</span>
+                        <span id="orderDate">June 4, 2023</span>
+                    </div>
+                    <div class="order-row">
+                        <span class="order-label">Total:</span>
+                        <span id="orderTotal">$0.00</span>
+                    </div>
+                    <div class="order-row">
+                        <span class="order-label">Payment Method:</span>
+                        <span id="paymentMethod">Credit Card</span>
+                    </div>
+                </div>
+                
+                <button class="continue-shopping-btn" id="continueShoppingBtn">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="products.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
